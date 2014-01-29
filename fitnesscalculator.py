@@ -3,17 +3,18 @@ from attribute import Attribute
 
 class FitnessCalculator:
 	def __init__(self):
-		self.solution = [Attribute(23), Attribute(76)]
+		self.solution = [.2, 0, 0, .9, -.3, 0, 0, 0]
 
 	def getSolution(self):
 		return self.solution
 
 	def getFitness(self, ind):
-		xdiff = ind.attributes[0].value - self.solution[0].value
-		ydiff = ind.attributes[1].value - self.solution[1].value
-		dist = xdiff * xdiff + ydiff * ydiff
+		dist = 0
+		for index in xrange(len(ind.attributeVector)):
+			diff = ind.attributeVector[index] - self.solution[index]
+			dist += diff * diff / len(ind.attributeVector)
 				
-		return 100 * 100 - dist
+		return 1 - dist
 
 	def maxFitness(self):
-		return 100 * 100
+		return 1

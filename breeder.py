@@ -34,8 +34,8 @@ class Breeder:
 				parentInd = ind1
 			else:
 				parentInd = ind2
-			newVal = parentInd[i].value
-			newInd.attributes += [Attribute(newVal)]
+			newVal = parentInd[i]
+			newInd.attributeVector += [newVal]
 
 		self.mutate(newInd)
 
@@ -43,9 +43,10 @@ class Breeder:
 
 
 	def mutate(self, ind):
-		for i in ind.attributes:
+		for index in xrange(len(ind.attributeVector)):
 			if random.random() < Breeder.mutationRate:
-				i.value += (random.random() * 2 - 1) * (Population.fit.maxFitness() - Population.fit.getFitness(ind))
+				# ind.attributeVector[index] += (random.random() * 2 - 1) * (Population.fit.maxFitness() - Population.fit.getFitness(ind))
+				ind.attributeVector[index] = random.random() * 2 - 1
 
 	def tourney(self):
 		tourneyPop = Population(Breeder.tourneySize, False)

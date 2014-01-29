@@ -9,7 +9,7 @@ print "Avg fitness: " + str(pop.averageFitness())
 print "Fittest: " + str(pop.getFittest())
 
 i = 0
-while Population.fit.getFitness(pop.getFittest()) < 9990:
+while Population.fit.getFitness(pop.getFittest()) < .99999:
 	i+=1
 	pop = breed.evolve()
 	print "Generation " + str(i)
