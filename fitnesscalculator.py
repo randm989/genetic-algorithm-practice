@@ -14,7 +14,7 @@ class FitnessCalculator:
 			diff = ind.attributeVector[index] - self.solution[index]
 			dist += diff * diff / len(ind.attributeVector)
 				
-		return 1 - dist
+		return dist
 
 	def maxFitness(self):
-		return 1
+		return 0

@@ -24,7 +24,7 @@ class Population:
 		maxFit = Population.fit.getFitness(result)
 		for ind in self.individuals:
 			newFit = Population.fit.getFitness(ind)
-			if maxFit < newFit:
+			if maxFit > newFit:
 				result = ind
 				maxFit = newFit
 		return result
